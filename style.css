@@ -5,13 +5,21 @@
 }
 
 .cabecalho{
-    background-color: rgb(93, 93, 236); /*cor de fundo*/
-    display: flex; /*disposição dos elementos flexíveis*/
-    justify-content: space-between; /*justificar conteúdo c/ espaços entre*/
-    align-items: center; /*alinhamento vertical dos itens no centro*/
+    background-color: rgb(51, 51, 200); /*cor de fundo*/
+    display:flex; /*disposição dos elementos flexíveis*/
+    justify-content:space-between; /*justificar conteúdo c/ espaços entre*/
+    align-items:center; /*alinhamento vertical dos itens no centro*/
     height: 100px; /*altura da área do cabeçalho em 100 pixels*/
 }
+
 ul{
     display: flex;
     justify-content: space-between;
+}
+
+.conteudo-secao-sustentavel{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 5%; /
 }
