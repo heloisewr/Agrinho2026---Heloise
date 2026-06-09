@@ -1,65 +1,123 @@
-/*Reset*/
-*{
-    margin:0;/*margem do body zerada*/
-    padding:0;/*espaço interno do body zerado*/
+/* Definição de variáveis para facilitar a inversão de cores */
+:root {
+    --bg-cor-principal: #ffffff;
+    --texto-cor-principal: #333333;
+    --texto-cor-secundaria: #7f8c8d;
+    --cabecalho-bg: rgb(56, 222, 145);
+    --titulo-destaque: rgb(53, 203, 165);
+    --botao-bg: rgb(56, 222, 145);
+    --botao-texto: rgb(19, 18, 18);
 }
 
-.cabecalho{
-    background-color: rgb(56, 222, 145); /*cor de fundo*/
-    display:flex; /*disposição dos elementos flexíveis*/
-    justify-content:space-between; /*justificar conteúdo c/ espaços entre*/
-    align-items:center; /*alinhamento vertical dos itens no centro*/
-    height: 100px; /*altura da área do cabeçalho em 100 pixels*/
+/* Quando o body tiver a classe .dark-mode, as cores mudam automaticamente */
+body.dark-mode {
+    --bg-cor-principal: #121212;
+    --texto-cor-principal: #f5f5f5;
+    --texto-cor-secundaria: #b0bec5;
+    --cabecalho-bg: #1e272e;
+    --titulo-destaque: #2ecc71;
+    --botao-bg: #2ecc71;
+    --botao-texto: #ffffff;
 }
 
-ul{
-    display: flex; /*flexibilidade dos elementos da lista ul*/
-    justify-content: space-between; /*espaço entre os elementos*/
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que padding não quebre o layout */
 }
-.cabecalho-item-lista{
-    padding:15px; /*espaçamento interno de cada item de 15 pixels*/
-    list-style-type: none;/*eliminando o ponto antes de cada item*/
+
+body {
+    background-color: var(--bg-cor-principal);
+    color: var(--texto-cor-principal);
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s; /* Transição suave ao mudar de modo */
 }
-.conteudo-secao-sustentavel{
+
+.cabecalho {
+    background-color: var(--cabecalho-bg);
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    height: 100px; 
+    padding: 0 5%;
+    transition: background-color 0.3s;
+}
+
+ul {
+    display: flex; 
+    justify-content: space-between; 
+}
+
+.cabecalho-item-lista {
+    padding: 15px; 
+    list-style-type: none;
+}
+
+/* Estilo do botão de alternância */
+.cabecalho-titulo-inversao {
+    background: transparent;
+    border: 2px solid var(--texto-cor-principal);
+    color: var(--texto-cor-principal);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.cabecalho-titulo-inversao:hover {
+    opacity: 0.8;
+}
+
+.conteudo-secao-sustentavel {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 60px 5%; /* espaço interno de 60pixels e 5%*/
-    min-height: 80vh; /*altura mínima de 80*/
-    gap: 30px; /*espaço vazio de 30px*/
+    padding: 60px 5%; 
+    min-height: 80vh; 
+    gap: 30px; 
 }
-.conteudo-sustentavel-texto{
+
+.conteudo-sustentavel-texto {
     flex: 1;
 }
-.conteudo-sustentavel-titulo{
+
+.conteudo-sustentavel-titulo {
     font-size: 3rem;
-    color: rgb(53, 203, 165);
+    color: var(--titulo-destaque);
     line-height: 1.2;
     margin-bottom: 20px;
 }
-.conteudo-sustentavel-paragrafo{
+
+.conteudo-sustentavel-paragrafo {
     font-size: 1.2rem;
     margin-bottom: 30px;
-    color: #7f8c8d;
+    color: var(--texto-cor-secundaria);
 }
-.sustentavel-botao{
+
+.sustentavel-botao, .botao-simular {
     display: inline-block;
-    background-color: var(--primary-color);
-    color: rgb(19, 18, 18);
+    background-color: var(--botao-bg);
+    color: var(--botao-texto);
     text-decoration: none;
     padding: 15px 35px;
     border-radius: 30px;
     font-weight: bold;
     font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
     box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
     transition: all 0.3s;
 }
-.conteudo-sustentavel-imagem{
+
+.conteudo-sustentavel-imagem {
     flex: 1;
     display: flex;
     justify-content: center;
 }
-.imagem-sustentavel{
+
+.imagem-sustentavel {
     width: 100%;
     max-width: 550px;
     height: auto;
@@ -67,18 +125,89 @@ ul{
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
-.conteudo-solucao{
-    display: block;
-    unicode-bidi: isolate;
+.conteudo-solucao {
+    padding: 60px 5%;
 }
-.titulo-solucao{
+
+.titulo-solucao {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--titulo-destaque);
+}
+    
+.paragrafo-solucao {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: var(--texto-cor-secundaria);
+}
+
+.lista-solucoes {
+    list-style-type: none;
+    margin-bottom: 30px;
+}
+
+.item-solucao {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
+
+.item-solucao strong {
+    color: var(--titulo-destaque);
     display: block;
-    font-size: 1.5em;
-    margin-block-start: 1em;
+    margin-bottom: 5px;
+}
 
-.lista-solucoes{
-        display: block;
-        list-style-type: disc;
+.rodape {
+    height: 100px;
+    background-color: var(--cabecalho-bg);
+    margin-top: 40px;
+}
 
+/* ==========================================================================
+   RESPONSIVIDADE (Media Queries)
+   ========================================================================== */
+
+/* Para tablets e telas médias (Até 768px) */
+@media (max-width: 768px) {
+    .cabecalho {
+        height: auto;
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .conteudo-secao-sustentavel {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 5%;
+    }
+
+    .conteudo-sustentavel-titulo {
+        font-size: 2.2rem;
+    }
+
+    .imagem-sustentavel {
+        max-width: 100%;
+    }
+}
+
+/* Para celulares (Até 480px) */
+@media (max-width: 480px) {
+    ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cabecalho-item-lista {
+        padding: 5px;
+    }
+
+    .conteudo-sustentavel-titulo {
+        font-size: 1.8rem;
+    }
+
+    .sustentavel-botao, .botao-simular {
+        width: 100%;
+        text-align: center;
     }
 }
